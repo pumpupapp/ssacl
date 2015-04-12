@@ -4,7 +4,7 @@
 
 - [Getting Started](#getting-started)
 - [Add ons](#add-ons)
-- [PumpUp](#pumpup)
+- [Sponsored by PumpUp](#pumpup)
 
 Effortlessly ensure that only the right actors can read and write objects.
 
@@ -28,6 +28,6 @@ ssacl ships with [ssacl-attribute-roles](https://github.com/mickhansen/ssacl-att
 
 ssacl will automatically initialize the addon on the models you initialize ssacl on, so you simply have to configure your attributes as described on the add-ons github page.
 
-## PumpUp
+## Sponsored by PumpUp
 
 The work on this project is being sponsored by the great people at [PumpUp](http://pumpup.co/)
