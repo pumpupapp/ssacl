@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/mickhansen/ssacl.svg?branch=master)](https://travis-ci.org/mickhansen/ssacl)
 
+- [Getting Started](#getting-started)
+- [Add ons](#add-ons)
+- [PumpUp](#pumpup)
+
 Effortlessly ensure that only the right actors can read and write objects.
 
 ## Getting Started
