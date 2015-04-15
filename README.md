@@ -1,6 +1,6 @@
 # Simple ACL for Sequelize
 
-[![Build Status](https://travis-ci.org/mickhansen/ssacl.svg?branch=master)](https://travis-ci.org/mickhansen/ssacl)
+[![Build Status](https://travis-ci.org/pumpupapp/ssacl.svg?branch=master)](https://travis-ci.org/pumpupapp/ssacl)
 
 - [Getting Started](#getting-started)
 - [Add ons](#add-ons)
