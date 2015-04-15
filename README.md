@@ -22,6 +22,8 @@ ssacl(sequelize|Model, {
 });
 ```
 
+Note: Either enable ssacl on the entire sequelize instance or specific Models. Mixing is not supported.
+
 ## Paranoia
 
 By default ssacl will have paranoia enabled (_disable with `{paranoia: false}` globally, or per call).
@@ -31,12 +33,13 @@ To perform actions as god/root use `new ssacl.Omnipotent()` as a placeholder act
 ## Options
 
 ### ssacl
-- `paranoia` `true|false` Toggle paranoia mode
+
+- `paranoia` `true|false` Toggle paranoia mode, default: `true`
 
 ### calls
 
-- `actor` `object|instance|Omnipotent` `default=null`
-- `paranoia` `true|false` `default=true`
+- `actor` `object|instance|Omnipotent` The actor for this call, default: `null`
+- `paranoia` `true|false` Toggle paranoia mode for this call default: `true`
 
 ## Add-ons
 
