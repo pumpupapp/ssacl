@@ -11,12 +11,15 @@ describe('paranoia', function () {
       var self = this;
 
       ssacl(this.sequelize, {
-        paranoia: true
+        paranoia: true,
+        read: {
+          attribute: 'id'
+        }
       });
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: null
+          actor: undefined
         });
       }.bind(this)).to.throwError('No actor was passed to call and paranoia is enabled');
     });
@@ -26,7 +29,10 @@ describe('paranoia', function () {
         , stub = sinon.stub(this.sequelize, 'query');
 
       ssacl(this.sequelize, {
-        paranoia: true
+        paranoia: true,
+        read: {
+          attribute: 'id'
+        }
       });
 
       expect(function () {
@@ -43,12 +49,15 @@ describe('paranoia', function () {
         , Model = this.sequelize.define('Model', {});
 
       ssacl(Model, {
-        paranoia: true
+        paranoia: true,
+        read: {
+          attribute: 'id'
+        }
       });
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: null
+          actor: undefined
         });
       }.bind(this)).to.throwError('No actor was passed to call and paranoia is enabled');
     });
@@ -59,7 +68,10 @@ describe('paranoia', function () {
         , stub = sinon.stub(this.sequelize, 'query');
 
       ssacl(Model, {
-        paranoia: true
+        paranoia: true,
+        read: {
+          attribute: 'id'
+        }
       });
 
       expect(function () {
@@ -74,32 +86,40 @@ describe('paranoia', function () {
 
   describe('disabled', function () {
     it('should not throw if no actor on query configured globally', function () {
-      var self = this;
+      var stub = sinon.stub(this.sequelize, 'query');
 
       ssacl(this.sequelize, {
-        paranoia: false
+        paranoia: false,
+        read: {
+          attribute: 'id'
+        }
       });
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: null
+          actor: undefined
         });
-      }.bind(this)).to.throwError('No actor was passed to call and paranoia is enabled');
+      }.bind(this)).not.to.throwError();
+      expect(stub.calledOnce).to.equal(true);
     });
 
     it('should not throw if no actor on query configured on Model', function () {
-      var self = this
+      var stub = sinon.stub(this.sequelize, 'query')
         , Model = this.sequelize.define('Model', {});
 
       ssacl(Model, {
-        paranoia: false
+        paranoia: false,
+        read: {
+          attribute: 'id'
+        }
       });
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: null
+          actor: undefined
         });
-      }.bind(this)).to.throwError('No actor was passed to call and paranoia is enabled');
+      }.bind(this)).not.to.throwError();
+      expect(stub.calledOnce).to.equal(true);
     });
   });
 });

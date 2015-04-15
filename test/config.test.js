@@ -13,7 +13,7 @@ describe('config', function () {
     var User
       , Project
       , spy = sinon.spy(ssacl, 'init')
-      , options = {};
+      , options = {read: {attribute: 'id'}};
 
     ssacl(sequelize, options);
 
@@ -31,7 +31,7 @@ describe('config', function () {
   it('should work on a sequelize model', function () {
     var User = sequelize.define('User')
       , spy = sinon.spy(ssacl, 'init')
-      , options = {};
+      , options = {read: {attribute: 'id'}};
 
     ssacl(User, options);
 
