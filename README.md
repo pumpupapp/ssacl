@@ -46,7 +46,7 @@ Note: `null` or any value matching the `public` value of `read/write/destroy` is
 - `paranoia` `true|false` Toggle paranoia mode, default: `true`
 - `actor` `function` Takes a function that parses an actor into a queryable primitive. Default function will take primary key value from a sequelize instance or return the passed input.
 - `read` `object` Defines the options for read restriction
-- `read.attribute` `object` **Required** The attribute/field to store allowed reader in
+- `read.attribute` `string` **Required** The attribute/field to store allowed reader in
 - `read.public` Value for public read, default: `null`
 - `read.none` Value for no reads, default: `0`
 
