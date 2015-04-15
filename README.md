@@ -15,10 +15,28 @@ npm install --save ssacl
 ```
 
 ```js
+var ssacl = require('ssacl');
+
 ssacl(sequelize|Model, {
-    
+  paranoia: true // default: true
 });
 ```
+
+## Paranoia
+
+By default ssacl will have paranoia enabled (_disable with `{paranoia: false}` globally, or per call).
+With Paranoia enabled any query executed without an actor will result in an error.
+To perform actions as god/root use `new ssacl.Omnipotent()` as a placeholder actor that allows everything.
+
+## Options
+
+### ssacl
+- `paranoia` `true|false` Toggle paranoia mode
+
+### calls
+
+- `actor` `object|instance|Omnipotent` `default=null`
+- `paranoia` `true|false` `default=true`
 
 ## Add-ons
 
