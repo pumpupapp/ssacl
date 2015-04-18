@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/pumpupapp/ssacl.svg?branch=master)](https://travis-ci.org/pumpupapp/ssacl)
 
 - [Getting Started](#getting-started)
+- [Protection](#protecetion)
 - [Paranoia](#paranoia)
 - [Options](#options)
 - [Add ons](#add-ons)
@@ -12,7 +13,7 @@ Effortlessly ensure that only the right actors can read and write objects.
 
 ssacl will ensure that all reads have the appropriate where queries attached and that all writes are checked for appropriate ownership values.
 
-*ssacl only supports Sequelize 2.0.7 or higher*
+*ssacl needs Sequelize 2.0.7 or higher for all functionality to work*
 
 ## Getting Started
 
@@ -35,6 +36,17 @@ ssacl(sequelize|Model, {
 
 Note: Either enable ssacl on the entire sequelize instance or specific Models. Mixing is not supported.
 Note: If using ssacl on specific models rather than on the sequelize instance the `paranoia` option needs to be the same for all models.
+
+## Protection
+
+ssacl currently protects the following methods:
+
+- instance.update()
+- instance.destroy()
+- Model.update()
+- Model.destroy()
+- Model.findAll()
+- Model.findOne()
 
 ## Paranoia
 
