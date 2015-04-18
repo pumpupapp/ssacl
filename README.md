@@ -12,6 +12,8 @@ Effortlessly ensure that only the right actors can read and write objects.
 
 ssacl will ensure that all reads have the appropriate where queries attached and that all writes are checked for appropriate ownership values.
 
+*ssacl only supports Sequelize 2.0.7 or higher*
+
 ## Getting Started
 
 ```sh

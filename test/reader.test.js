@@ -25,22 +25,16 @@ describe('reader', function () {
     });
 
     return this.sequelize.sync({force: true}).then(function () {
-      return User.create({}, {paranoia: false}).then(function (user) {
+      return User.create({}).then(function (user) {
         return Promise.join(
           Post.create({
             read: user.get('id')
-          }, {
-            paranoia: false
           }),
           Post.create({
 
-          }, {
-            paranoia: false
           }),
           Post.create({
             read: 0
-          }, {
-            paranoia: false
           })
         ).then(function (posts) {
           return [user, posts];

@@ -5,7 +5,8 @@ var Sequelize = require('sequelize')
 
 beforeEach(function () {
   this.sequelize = new Sequelize(null, null, null, {
-    dialect: 'sqlite'
+    dialect: 'sqlite',
+    logging: false
   });
 });
 

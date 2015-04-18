@@ -2,7 +2,7 @@
   "name": "ssacl",
   "version": "0.0.2",
   "description": "Simple ACL for Sequelize",
-  "main": "lib/index.js",
+  "main": "lib/ssacl.js",
   "scripts": {
     "test": " ./node_modules/.bin/jshint lib/ test/ && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec"
   },
@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/mickhansen/ssacl",
   "devDependencies": {
+    "chai": "^2.2.0",
+    "chai-as-promised": "^5.0.0",
     "expect.js": "^0.3.1",
     "istanbul": "^0.3.7",
     "jshint": "^2.6.3",
