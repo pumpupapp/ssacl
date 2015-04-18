@@ -19,23 +19,28 @@ describe('reader', function () {
         });
 
     ssacl(Post, {
-      paranoia: false,
       read: {
         attribute: 'read'
       }
     });
 
     return this.sequelize.sync({force: true}).then(function () {
-      return User.create({}).then(function (user) {
+      return User.create({}, {paranoia: false}).then(function (user) {
         return Promise.join(
           Post.create({
             read: user.get('id')
+          }, {
+            paranoia: false
           }),
           Post.create({
 
+          }, {
+            paranoia: false
           }),
           Post.create({
             read: 0
+          }, {
+            paranoia: false
           })
         ).then(function (posts) {
           return [user, posts];
@@ -55,6 +60,11 @@ describe('reader', function () {
           expect(found.length).to.equal(2);
           expect(found[0].get('id')).to.equal(posts[0].get('id'));
           expect(found[1].get('id')).to.equal(posts[1].get('id'));
+        }),
+        Post.findAll({
+          paranoia: false
+        }).then(function (found) {
+          expect(found.length).to.equal(3);
         })
       );
     });

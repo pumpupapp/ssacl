@@ -19,7 +19,8 @@ describe('paranoia', function () {
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: undefined
+          actor: undefined,
+          type: this.sequelize.QueryTypes.SELECT
         });
       }.bind(this)).to.throwError('No actor was passed to call and paranoia is enabled');
     });
@@ -37,7 +38,8 @@ describe('paranoia', function () {
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: new ssacl.Omnipotent()
+          actor: new ssacl.Omnipotent(),
+          type: this.sequelize.QueryTypes.SELECT
         });
       }.bind(this)).not.to.throwError();
 
@@ -57,7 +59,8 @@ describe('paranoia', function () {
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: undefined
+          actor: undefined,
+          type: this.sequelize.QueryTypes.SELECT
         });
       }.bind(this)).to.throwError('No actor was passed to call and paranoia is enabled');
     });
@@ -76,7 +79,8 @@ describe('paranoia', function () {
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: new ssacl.Omnipotent()
+          actor: new ssacl.Omnipotent(),
+          type: this.sequelize.QueryTypes.SELECT
         });
       }.bind(this)).not.to.throwError();
 
@@ -97,7 +101,8 @@ describe('paranoia', function () {
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: undefined
+          actor: undefined,
+          type: this.sequelize.QueryTypes.SELECT
         });
       }.bind(this)).not.to.throwError();
       expect(stub.calledOnce).to.equal(true);
@@ -116,7 +121,8 @@ describe('paranoia', function () {
 
       expect(function () {
         this.sequelize.query("SELECT * FROM yolo", {
-          actor: undefined
+          actor: undefined,
+          type: this.sequelize.QueryTypes.SELECT
         });
       }.bind(this)).not.to.throwError();
       expect(stub.calledOnce).to.equal(true);

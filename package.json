@@ -25,7 +25,7 @@
     "istanbul": "^0.3.7",
     "jshint": "^2.6.3",
     "mocha": "^2.2.1",
-    "sequelize": "^2.0.4",
+    "sequelize": "git+https://github.com/sequelize/sequelize.git",
     "sinon": "^1.14.1",
     "sqlite3": "^3.0.5"
   },
