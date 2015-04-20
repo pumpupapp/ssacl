@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/pumpupapp/ssacl.svg?branch=master)](https://travis-ci.org/pumpupapp/ssacl)
 
 - [Getting Started](#getting-started)
-- [Protection](#protecetion)
+- [Usage](#usage)
 - [Paranoia](#paranoia)
 - [Options](#options)
 - [Add ons](#add-ons)
@@ -34,19 +34,46 @@ ssacl(sequelize|Model, {
 });
 ```
 
-Note: Either enable ssacl on the entire sequelize instance or specific Models. Mixing is not supported.
-Note: If using ssacl on specific models rather than on the sequelize instance the `paranoia` option needs to be the same for all models.
+*Note*: Either enable ssacl on the entire sequelize instance or specific Models. Mixing is not supported.
+*Note*: If using ssacl on specific models rather than on the sequelize instance the `paranoia` option needs to be the same for all models.
 
-## Protection
+## Usage
 
-ssacl currently protects the following methods:
+```js
+// will throw an error if the actor for instance does not match the passed actor
+instance.update(values, {
+  actor: actor
+});
 
-- instance.update()
-- instance.destroy()
-- Model.update()
-- Model.destroy()
-- Model.findAll()
-- Model.findOne()
+// will throw an error if the actor for instance does not match the passed actor
+instance.destroy({
+  actor: actor
+});
+
+// will ammend the where to match the actor
+Model.update(values, {
+  where: {..}
+  actor: actor
+});
+
+// will ammend the where to match the actor
+Model.destroy({
+  where: {..}
+  actor: actor
+});
+
+// will ammend the where to match the actor
+Model.findAll({
+  where: {..}
+  actor: actor
+});
+
+// will ammend the where to match the actor
+Model.findOne({
+  where: {..}
+  actor: actor
+});
+```
 
 ## Paranoia
 
