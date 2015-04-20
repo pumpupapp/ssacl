@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mickhansen/ssacl"
+    "url": "https://github.com/pumpaupp/ssacl"
   },
   "keywords": [
     "sequelize",
@@ -17,9 +17,9 @@
   "author": "Mick Hansen <maker@mhansen.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mickhansen/ssacl/issues"
+    "url": "https://github.com/pumpaupp/ssacl/issues"
   },
-  "homepage": "https://github.com/mickhansen/ssacl",
+  "homepage": "https://github.com/pumpaupp/ssacl",
   "devDependencies": {
     "chai": "^2.2.0",
     "chai-as-promised": "^5.0.0",
