@@ -81,7 +81,7 @@ By default ssacl will have paranoia enabled (_disable with `{paranoia: false}` g
 With Paranoia enabled any query executed without an actor will result in an error.
 To perform actions as god/root use `new ssacl.Omnipotent()` as a placeholder actor that allows everything.
 
-Note: `null` or any value matching the `public` value of `read/write/destroy` is also a valid actor.
+Note: `null` or any value matching the `public` value of `read` is also a valid read actor.
 
 ## Options
 
