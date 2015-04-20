@@ -1,6 +1,6 @@
 {
   "name": "ssacl",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple ACL for Sequelize",
   "main": "lib/ssacl.js",
   "scripts": {
