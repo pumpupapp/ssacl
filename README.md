@@ -99,7 +99,7 @@ ns.run(function () {
 });
 ```
 
-*Note that this will apply CLS to Sequelize, so if using CLS with Sequelize, make sure it's the same namespace* 
+*Note that this will apply CLS to Sequelize, so if using CLS with Sequelize, make sure it's the same namespace*
 
 ## Paranoia
 
@@ -135,6 +135,10 @@ Note: `null` or any value matching the `public` value of `read` is also a valid 
 ssacl ships with [ssacl-attribute-roles](https://github.com/mickhansen/ssacl-attribute-roles) so you get role white-/blacklisting for free.
 
 ssacl will automatically initialize the addon on the models you initialize ssacl on, so you simply have to configure your attributes as described on the add-ons github page.
+
+### koa-ssacl
+
+[koa-ssacl](https://github.com/mickhansen/koa-ssacl) makes actor passing trivial by supporting cls with middleware.
 
 ## Sponsored by PumpUp
 
