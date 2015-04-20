@@ -75,6 +75,32 @@ Model.findOne({
 });
 ```
 
+### CLS
+
+Passing actor to all calls can be cumbersome and error-prone so ssacl also supports passing the actor with [CLS](https://github.com/othiym23/node-continuation-local-storage).
+
+```js
+var cls = require('continuation-local-storage')
+  , ns = cls.createNamespace('mynamespace');
+
+ssacl(sequelize|Model, {
+  cls: ns
+});
+
+// ssacl will look for the actor property in the name
+
+ns.run(function () {
+  ns.set('actor', 2);
+
+  // both calls will automatically be scoped without explicitely setting actor
+  return Model.findAll().then(function () {
+    return Model.destroy();
+  });
+});
+```
+
+*Note that this will apply CLS to Sequelize, so if using CLS with Sequelize, make sure it's the same namespace* 
+
 ## Paranoia
 
 By default ssacl will have paranoia enabled (_disable with `{paranoia: false}` globally, or per call_).

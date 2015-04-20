@@ -1,6 +1,6 @@
 {
   "name": "ssacl",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple ACL for Sequelize",
   "main": "lib/ssacl.js",
   "scripts": {
@@ -23,6 +23,7 @@
   "devDependencies": {
     "chai": "^2.2.0",
     "chai-as-promised": "^5.0.0",
+    "continuation-local-storage": "^3.1.4",
     "expect.js": "^0.3.1",
     "istanbul": "^0.3.7",
     "jshint": "^2.6.3",
