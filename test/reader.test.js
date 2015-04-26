@@ -108,4 +108,51 @@ describe('reader', function () {
       });
     });
   });
+
+  it('should allow all when omnipotent reader', function () {
+    var User = this.sequelize.define('User', {})
+      , Post = this.sequelize.define('Post', {
+          read: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
+            defaultValue: null
+          }
+        });
+
+    ssacl(Post, {
+      read: {
+        attribute: 'read'
+      }
+    });
+
+    return this.sequelize.sync({force: true}).then(function () {
+      return User.create({}, {paranoia: false}).then(function (user) {
+        return Promise.join(
+          Post.create({
+            read: user.get('id')
+          }, {
+            paranoia: false
+          }),
+          Post.create({
+
+          }, {
+            paranoia: false
+          }),
+          Post.create({
+            read: 0
+          }, {
+            paranoia: false
+          })
+        ).then(function (posts) {
+          return [user, posts];
+        });
+      });
+    }).spread(function (user, posts) {
+      return Post.findAll({
+        actor: new ssacl.Omnipotent()
+      }).then(function (found) {
+        expect(found.length).to.equal(3);
+      });
+    });
+  });
 });

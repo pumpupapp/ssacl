@@ -76,6 +76,14 @@ describe('writer', function () {
         actor: this.user
       });
     });
+
+    it('should allow update when omnipotent actor', function () {
+      return this.post.update({
+        title: 'Super Duper Awesome Post'
+      }, {
+        actor: new ssacl.Omnipotent()
+      });
+    });
   });
 
   describe('Model.update', function () {
@@ -154,6 +162,12 @@ describe('writer', function () {
     it('should allow destroy when correct actor', function () {
       return this.post.destroy({
         actor: this.user
+      });
+    });
+
+    it('should allow destroy when omnipotent actor', function () {
+      return this.post.destroy({
+        actor: new ssacl.Omnipotent()
       });
     });
   });
