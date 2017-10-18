@@ -37,6 +37,6 @@
     "ssacl-attribute-roles": "^1.0.0"
   },
   "peerDependencies": {
-    "sequelize": "4.x"
+    "sequelize": "^4.12.0"
   }
 }
