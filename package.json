@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "shimmer": "^1.0.0",
-    "ssacl-attribute-roles": "github:mickhansen/ssacl-attribute-roles#v1.0.0"
+    "ssacl-attribute-roles": "1.0.0"
   },
   "peerDependencies": {
     "sequelize": "4.x"
